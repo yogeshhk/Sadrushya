@@ -1,6 +1,8 @@
-# Sadrushya
+# Sadrushya(सादृश्य)
 
-**Sadrushya** (सादृश्य, meaning *similar to the scene*) is an open-source initiative in the domain of **Spatial Intelligence**. Our goal is to build tools, libraries, and applications that empower developers, researchers, and creators to generate, manipulate, and interact with 3D scenes using cutting-edge AI, ML, and generative technologies.
+**Sadrushya** is an open-source initiative focused on **Spatial AI for real-world intelligence**, designed for independent consultants and researchers who want to work in **high-value, low-compute AI domains**.
+
+This repository documents a **domain transition roadmap** for moving from generic GenAI/LLMs into **geometry-centric, spatial intelligence consulting**.
 
 **Two high-impact, future-proof themes**: **Macro-Spatial Intelligence** (Aerial) and **Micro-Spatial Intelligence** (Physical AI/3D).
 
@@ -8,6 +10,36 @@ This approach bridges the gap between today's 2D computer vision and tomorrow's 
 
 > *"The next frontier of AI isn't just generating text or images; it's understanding and generating the 3D physical world."* — Adapted from Fei-Fei Li's "Spatial Intelligence".
 
+---
+
+## Vision
+
+Most AI work today focuses on text and 2D images.  
+The next valuable frontier is **AI that understands space, geometry, and the physical world**.
+
+Sadrushya focuses only on **consulting-grade, monetizable Spatial AI domains**:
+
+- Aerial Intelligence (agriculture, infrastructure, surveillance)
+- Built Environment Intelligence (floorplans → 3D → digital twins)
+- Geometry as a Searchable Modality (3D retrieval/RAG)
+
+This direction is practical, future-proof, and suitable for **solo consultants without heavy GPU dependency**.
+
+---
+
+## Positioning
+
+This project positions the author as:
+
+**“Spatial AI Consultant for Aerial Intelligence and Digital Twin Automation using Lightweight Geometry AI.”**
+
+This niche is:
+- Rare
+- High-demand
+- Compute-efficient
+- Strongly relevant for **India + global markets**
+
+---
 
 ## Personally
 This repository outlines a transition strategy for a Gen AI consultant moving into **Spatial Intelligence**. Unlike the saturated LLM market, this domain applies AI to **geometry, 3D space, and physical understanding**.
@@ -36,6 +68,79 @@ This repository outlines a transition strategy for a Gen AI consultant moving in
 
 ---
 
+## Core Consulting Themes (Focused & Prioritized)
+
+### 1. Aerial Spatial Intelligence
+
+**Problem Solved**
+- Extract insights from satellite and drone data.
+
+**Real-World Clients**
+- Agriculture firms
+- Solar plant inspectors
+- Smart city planners
+- Defense & surveillance contractors
+
+**Typical Outcomes**
+- Crop stress maps
+- Object detection (vehicles, encroachments)
+- Land-use classification
+
+**Modalities**
+- 2D high-resolution aerial imagery → geo-tagged insights
+
+---
+
+### 2. Floorplan → 3D Digital Twin Automation
+
+**Problem Solved**
+- Manual creation of 3D models from 2D architectural plans is slow and expensive.
+
+**Real-World Clients**
+- Real-estate platforms
+- Architecture studios
+- Property surveyors
+
+**Typical Outcomes**
+- Auto-generated 3D models from floorplans
+- Virtual staging pipelines
+
+**Modalities**
+- 2D vector drawings → 3D meshes → OpenUSD scenes
+
+---
+
+### 3. Geometry RAG (3D Retrieval Systems)
+
+**Problem Solved**
+- Designers and engineers struggle to reuse 3D assets efficiently.
+
+**Real-World Clients**
+- Product designers
+- CAD/BIM firms
+- Game asset studios
+
+**Typical Outcomes**
+- “Search by shape” engines
+- Text → 3D asset retrieval
+
+**Modalities**
+- Point clouds + mesh embeddings + text embeddings
+
+---
+
+## Consulting-Oriented Use Cases
+
+| Client Type | Consulting Deliverables |
+|-------------|--------------------------|
+| AgriTech firms | Crop health APIs |
+| Smart city teams | Aerial analytics dashboards |
+| Real estate portals | Floorplan-to-3D automations |
+| AEC firms | Lightweight digital twins |
+| Manufacturing | 3D asset retrieval assistants |
+
+---
+
 ## 🛠 Open Source Tech Stack (Low-Compute/Edge Focus)
 
 | Layer | Tools & Libraries | Usage |
@@ -51,29 +156,74 @@ This repository outlines a transition strategy for a Gen AI consultant moving in
 ## 🚀 Concrete Projects to Build
 
 Build these portfolio projects to demonstrate expertise.
+### Project 1: Drone → Crop Health Analyzer
 
-### Project A: The "Hawk-Eye" Ag-Bot (Aerial)
-*From `references\Notes_Shyenakshi.md`*
-* **Goal:** A lightweight tool to detect crop diseases or count assets in drone imagery.
-* **Technique:** Fine-tune a lightweight **YOLOv8** or **SegFormer** on aerial datasets.
-* **Edge Twist:** Optimize the model using **OpenVINO** to run on a standard laptop or Drone onboard computer (e.g., Raspberry Pi/Jetson).
-* **Monetization:** API for local ag-consultancies or solar farm inspectors.
+**Goal**
+Detect crop stress, count objects, and generate health heatmaps.
 
-### Project B: "FloorPlan-to-Twin" Generator (Indoor)
-*From `references\Notes_FloorPlan.md`*
-* **Goal:** Convert a 2D image of a floor plan into a basic 3D USD (Universal Scene Description) model.
-* **Technique:** 1.  **Vectorization:** Use OpenCV/DeepFloorplan to extract walls/windows as vectors.
-    2.  **Extrusion:** algorithmically lift 2D vectors to 3D meshes.
-    3.  **GenAI:** Use Stable Diffusion to apply textures to the 3D surfaces.
-* **Monetization:** Micro-SaaS for Real Estate agents (Virtual Staging).
+**Stack**
+- YOLOv8-nano
+- OpenCV
+- OpenVINO
 
-### Project C: Geometric RAG Agent (Generative 3D)
-*From `references\Notes_PhysicalAI.md` & `references\Notes_GeometryAsNewModality.md`*
-* **Goal:** A "Copilot" for 3D designers. User asks: *"Give me a modern chair with wooden legs"*.
-* **Technique:** 1.  **Database:** Index a free 3D dataset (like Objaverse) using **PointNet** embeddings (geometry) + CLIP embeddings (text).
-    2.  **Retrieval:** Retrieve the best matching 3D asset.
-    3.  **Format:** Return the result as an OpenUSD file.
-* **Monetization:** Plugin for Blender or NVIDIA Omniverse.
+**Datasets**
+- DOTA
+- xView
+- PlantVillage
+
+**Deliverable**
+- REST API + dashboard
+
+---
+
+### Project 2: Floorplan → 3D Digital Twin Generator
+
+**Goal**
+Convert 2D plans into 3D OpenUSD scenes.
+
+**Pipeline**
+1. OpenCV vector extraction
+2. Mesh generation using Open3D/PyTorch3D
+3. Export to OpenUSD
+
+**Datasets**
+- CubiCasa5k
+- RPLAN
+
+**Deliverable**
+- CLI + Web viewer demo
+
+---
+
+### Project 3: Geometry RAG System
+
+**Goal**
+Build a search engine for 3D shapes.
+
+**Stack**
+- PointNet / PointNet++
+- FAISS
+- CLIP
+
+**Datasets**
+- Objaverse
+- ShapeNet
+
+**Deliverable**
+- Query API + embedding visualizer
+
+---
+
+## Benchmarking & Metrics
+
+Each project must track:
+
+- Inference time (CPU)
+- Model size (MB)
+- Accuracy (mAP / IoU)
+- Latency after OpenVINO optimization
+
+This makes the work **consulting-grade** instead of academic-only.
 
 ---
 
@@ -102,6 +252,26 @@ Build these portfolio projects to demonstrate expertise.
 | **Indoor/3D** | **Objaverse** | Massive dataset of 3D objects (great for RAG). |
 | **Aerial** | **DOTA / xView** | Large-scale datasets for object detection in aerial images. |
 | **Agriculture** | **Plant Village** | Crop disease classification. |
+
+---
+## Who This Repository Is For
+
+- Independent consultants
+- Applied researchers
+- Engineers shifting from generic LLM work
+- Practitioners who want **real-world, monetizable AI skills**
+
+---
+
+## Philosophy
+
+This project deliberately avoids:
+- Generic LLM wrappers
+- GPU-heavy pipelines
+- Research-only prototypes
+
+The focus is:
+**Real geometry, real deployment, real consulting value.**
 
 ---
 
